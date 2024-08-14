@@ -1,0 +1,16 @@
+.secBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: #313131dd
+}
+
+.secBtn i{
+    font-size: 1.8rem;
+}
+
+.secBtn p{
+    font-size: 1.2rem;
+    font-weight: 300;
+}

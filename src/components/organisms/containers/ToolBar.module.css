@@ -1,0 +1,14 @@
+.toolslist li{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    cursor: pointer;
+    border-radius: 100%;
+}
+
+.activated-tool{
+    color: white;
+}

@@ -1,10 +1,11 @@
 import ILineData from "../../interfaces/DrawData/ILineData";
 import Color from "../Types/Color";
+import { LayerType } from "../Types/LayerType";
 import LayerData from "./LayerData";
 
 export default class LineData extends LayerData implements ILineData{
     constructor(
-        public type: string = "LINE",
+        public type = LayerType.LINE,
 
         public xo: number,
         public yo: number,
@@ -13,6 +14,6 @@ export default class LineData extends LayerData implements ILineData{
         public thickness: number,
         public color: Color
     ){
-        super()
+        super(type)
     }
 }

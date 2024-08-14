@@ -6,15 +6,7 @@ import vector2 from "../utils/Math/vector2";
 import LayerContext, { ILayerContext } from "../contexts/LayerContext";
 
 
-export default function useDrag(){
-
-    const {
-        mainRef, 
-        canvRef, 
-        selected, 
-        setSelected, 
-        setPosition
-    } : ILayerContext = useContext(LayerContext)
+export default function useDrag({mainRef, canvRef, selected, setSelected, setPosition}:ILayerContext){
 
     const {drawState} = useContext(DrawStateContext);
 

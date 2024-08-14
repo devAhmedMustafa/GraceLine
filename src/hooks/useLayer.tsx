@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useContext, useEffect, useRef, useState } from "react";
+import React, { MutableRefObject, ReactNode, useContext, useEffect, useRef, useState } from "react";
 import DrawStateContext, { DrawTools, IDrawStateContext } from "../contexts/DrawStateContext";
 import LayersContext, { ILayersContext } from "../contexts/LayersContext";
 import vector2 from "../utils/Math/vector2";
@@ -6,7 +6,6 @@ import ILayerData from "../interfaces/DrawData/ILayerData";
 import Transform from "../utils/Transform/Transform";
 import ILayer from "../interfaces/Layers/ILayer";
 import useDrag from "./useDrag";
-import LayerContext from "../contexts/LayerContext";
 import DrawObject from "../utils/draw objects/DrawObject";
 
 export default function useLayer<T extends ILayerData>(layer: ILayer<T>, object: DrawObject){
@@ -15,8 +14,8 @@ export default function useLayer<T extends ILayerData>(layer: ILayer<T>, object:
     const {layers} : ILayersContext = useContext(LayersContext)
     const {setLayers} : ILayersContext = useContext(LayersContext)
 
-    const mainRef : MutableRefObject<any> = useRef()
-    const canvRef : MutableRefObject<any> = useRef()
+    const mainRef : MutableRefObject<HTMLDivElement|undefined> = useRef()
+    const canvRef : MutableRefObject<HTMLCanvasElement|undefined> = useRef()
 
     const [position, setPosition] = useState<vector2>(layer.position)
     const [size, setSize] = useState<vector2>(layer.size)
@@ -24,7 +23,14 @@ export default function useLayer<T extends ILayerData>(layer: ILayer<T>, object:
 
     const [selected, setSelected] = useState<boolean>(false)
 
-    useDrag()
+    useDrag({
+        mainRef: mainRef,
+        canvRef: canvRef,
+        selected: selected,
+        setSelected: setSelected,
+        position: position,
+        setPosition: setPosition
+    })
 
     // Initialize
     useEffect(()=>{
@@ -32,52 +38,50 @@ export default function useLayer<T extends ILayerData>(layer: ILayer<T>, object:
     }, [])
 
     // Update layer details
-    useEffect(()=>{
-
-        draw()
+    function updateLayerData(){
 
         let layersItems : ILayer<ILayerData>[] = [...layers];
-        let layerItem = {...layers[layer.id]};
+        let layerItem : ILayer<ILayerData> = layers[layer.id];
+        console.log(layers)
         layerItem.position = position;
         layerItem.size = size;
-        layer.props = props;
+        layerItem.props = props;
 
         layersItems[layer.id] = layerItem;
         setLayers(layersItems);
-    }, [position, size, props])
+    }
 
 
     // Draw in layer
     function draw(){
-        const canvas = canvRef.current;
-        const main = mainRef.current;
-        
+        const canvas = canvRef.current!;
+        const main = mainRef.current!;
+
+
         Transform.moveElement(main, position);
         
         canvas.width = size.x;
         canvas.height = size.y;
-        canvas.style.zIndex = 30;
+        canvas.style.zIndex = "30";
 
         const ctx = canvas.getContext('2d');
 
-        object.draw(ctx);
+        object.draw(ctx!);
     }
 
-    const renderJSX : React.FC = ()=> {
+    useEffect(()=>{
+        draw()
+        updateLayerData()
+    }, [position, size, props])
+
+    const renderJSX : React.FC<{children: ReactNode}> = ({children})=> {
 
         return (
-            <LayerContext.Provider value={{
-                mainRef: mainRef,
-                canvRef: canvRef,
-                selected: selected,
-                setSelected: setSelected,
-                position: position,
-                setPosition: setPosition
-            }}>
+            <div>
 
-                <div ref={mainRef} className="absolute z-20">
+                <div ref={mainRef as MutableRefObject<HTMLDivElement>} className="absolute z-20">
 
-                    <canvas ref={canvRef} onClick={()=> setSelected(true)} className="absolute z-20"></canvas>
+                    <canvas ref={canvRef as MutableRefObject<HTMLCanvasElement>} onClick={()=> setSelected(true)} className="absolute z-20 bg-orange-300"></canvas>
 
                     {
                         selected &&
@@ -85,14 +89,15 @@ export default function useLayer<T extends ILayerData>(layer: ILayer<T>, object:
                         <>
                             <div className="flex items-center absolute -top-20 w-fit origin-center z-10 p-4 rounded-md bg-white">
 
-                                
+                                {children}
+
                             </div>
 
                         </>
                     }
 
                 </div>
-            </LayerContext.Provider>
+            </div>
         )
     }
 

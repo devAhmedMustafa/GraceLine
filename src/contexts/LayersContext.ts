@@ -9,7 +9,7 @@ export interface ILayersContext{
 
 const LayersContext = createContext<ILayersContext>({
     layers: [],
-    setLayers() {
+    setLayers(layers) {
         
     },
 })

@@ -9,4 +9,5 @@ export default interface IFreehandData extends ILayerData{
     y: number[];
     max: vector2;
     min: vector2;
+    staticPosition: vector2;
 }

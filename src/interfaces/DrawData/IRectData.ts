@@ -7,5 +7,5 @@ export default interface IRectData extends ILayerData{
     color : Color;
     strokeColor : Color;
     strokeThickness : number;
-    radii : number [];
+    radii : number [] | number;
 }

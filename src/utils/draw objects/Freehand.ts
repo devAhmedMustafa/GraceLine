@@ -4,17 +4,30 @@ import DrawObject from "./DrawObject";
 
 export default class Freehand extends DrawObject{
     constructor(
-        public position : vector2,
-        public x : number[],
-        public y : number[],
-        public shift : vector2,
         public color : Color,
-        public thickness : number
+        public thickness : number,
+        public x : number[] = new Array<number>,
+        public y : number[] = new Array<number>,
+        public shift : vector2 = new vector2(0, 0),
+        public position : vector2 = new vector2(0, 0),
     ){
         super(position)
     }
 
+    start(ctx: CanvasRenderingContext2D, xo: number, yo: number){
+
+        this.position.x = xo - this.shift.x;
+        this.position.y = yo - this.shift.y;
+
+        ctx.beginPath();
+        ctx.lineWidth = this.thickness;
+        ctx.strokeStyle = this.color;
+        ctx.moveTo(this.position.x, this.position.y);
+    }
+
     draw(ctx: CanvasRenderingContext2D): void {
+        ctx.beginPath();
+
         for (let i = 0; i < this.x.length; i++){
             ctx.lineTo(this.x[i]-this.shift.x, this.y[i]-this.shift.y);
         }

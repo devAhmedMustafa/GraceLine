@@ -9,7 +9,7 @@ export default class Rectangular extends DrawObject{
         public color : Color,
         public strokeColor : Color,
         public strokeThickness : number,
-        public radii : number[]
+        public radii : number[] | number
     ){
         super(position);
     }
