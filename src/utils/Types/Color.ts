@@ -1,7 +1,11 @@
 const enum Color{
-    red = "#fffff",
+    red = "#FF0000",
     gray = "#808080",
-    black = "#000000"
+    black = "#000000",
+    primary = "#ff472f",
+    saturatedOrange = "#FB1D00",
+    pink = "#FF2F7F",
+    green = "#008000",
 }
 
 export const ColorIndexes = [

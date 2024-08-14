@@ -19,7 +19,7 @@
     }
 
     .solid-shadow-gray{
-        box-shadow: 7px 7px 0px #c0c0c0;
+        filter: drop-shadow(7px 7px 0px #3838382a);
     }
 
     .container-padding{

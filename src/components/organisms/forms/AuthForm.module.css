@@ -1,0 +1,41 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.form input{
+    background-color: rgb(247, 247, 247);
+    padding: 12px 21px;
+    border-radius: 5px;
+    
+}
+
+.form input:focus{
+    outline: none;
+}
+
+.form button[type="submit"]{
+    background-color: #2E82FF;
+    width: fit-content;
+    padding: 10px 16px;
+    color: white;
+    font-weight: 500;
+    border-radius: 40px;
+}
+
+.form > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.form > div > a{
+    color: rgb(0, 36, 66)
+}
+
+.form > div > a > span{
+    font-weight: 700;
+}

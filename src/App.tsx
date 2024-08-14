@@ -6,6 +6,9 @@ import DocumentsPage from './pages/DocumentsPage'
 import { useState } from 'react'
 import DocumentsContext, { IDocumentsContext } from './contexts/DocumentsContext'
 import IDocument from './interfaces/IDocument'
+import AuthLayout from './components/templates/layouts/AuthLayout'
+import SignupPage from './pages/SignupPage'
+import LoginPage from './pages/LoginPage'
 
 
 function App() {
@@ -19,9 +22,15 @@ function App() {
       <BrowserRouter>
 
         <Routes>
+
           <Route path='/' element={<MainLayout/>}>
             <Route index element={<HomePage />} />
             <Route path='/documents' element={<DocumentsPage/>}/>
+          </Route>
+
+          <Route path='/auth' element={<AuthLayout/>}>
+            <Route path='signup' element={<SignupPage/>}/>
+            <Route path='login' element={<LoginPage/>}/>
           </Route>
 
         </Routes>
