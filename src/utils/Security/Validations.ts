@@ -9,6 +9,10 @@ export default class Validations{
         return regex.test(password);
     }
 
+    static confirmation(password: string, confirm: string){
+        return password === confirm;
+    }
+
     static required(str: string){
         return str.trim() !== '';
     }

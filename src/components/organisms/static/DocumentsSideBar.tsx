@@ -4,9 +4,8 @@ import AddDocumentButton from "../../atoms/buttons/AddDocumentButton";
 
 const DocuementsSideBar : React.FC = ()=>{
     return (
-        <div className="bg-[#ececec3a] w-fit h-full container-padding flex flex-col gap-12 border-r-2">
+        <div className="bg-[#ececec3a] w-fit h-full container-padding flex flex-col gap-12 shadow-2xl justify-between">
             
-            <AddDocumentButton/>
 
             <div className="flex flex-col gap-5 items-start">
 
@@ -28,6 +27,7 @@ const DocuementsSideBar : React.FC = ()=>{
 
             </div>
 
+            <AddDocumentButton/>
         </div>
     )
 }

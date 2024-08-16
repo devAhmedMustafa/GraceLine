@@ -2,9 +2,11 @@ import ILayerData from "./DrawData/ILayerData";
 import ILayer from "./Layers/ILayer";
 
 export default interface IDocument{
-    id: number | string;
+    _id?: number | string;
     name: string;
-    layers: ILayer<ILayerData>[];
-    createdAt?: Date;
-    openedAt?: Date;
+    description?: string;
+    layers?: ILayer<ILayerData>[];
+    created_at?: Date;
+    updated_at?: Date;
+    opened_at?: Date;
 }

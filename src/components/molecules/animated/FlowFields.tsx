@@ -40,9 +40,9 @@ export default function FlowFields({width, height, colorPallete, numberOfParticl
         animate();
 
         addEventListener('resize', () => {
-            canvas.width = width;
-            canvas.height = height;
-            effect.init(canvas.width, canvas.height);
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            // effect.init(canvas.width, canvas.height);
         });
     }, [])
 

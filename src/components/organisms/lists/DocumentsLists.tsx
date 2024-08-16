@@ -8,7 +8,7 @@ const DocumentsList : React.FC = ()=>{
 
     return (
         <ul className="flex gap-8 flex-wrap">
-            {documents.map((doc, id)=> <DocumentListItem key={id} document={doc}/>)}
+            {Object.values(documents).map((doc, id)=> <DocumentListItem key={id} document={doc}/>)}
         </ul>
     )
 }

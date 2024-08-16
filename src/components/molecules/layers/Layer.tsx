@@ -46,8 +46,10 @@ export default function Layer({layer, object, children}: LayerProps){
     // Update layer details
     function updateLayerData(){
 
-        let layersItems : ILayer<ILayerData>[] = [...layers];
-        let layerItem : ILayer<ILayerData> = layers[layer.id];
+        if (!layer) return;
+
+        let layersItems : ILayer<ILayerData>[] = [...layers!];
+        let layerItem : ILayer<ILayerData> = layers![layer.id];
         layerItem.position = position;
         layerItem.size = size;
         layerItem.props = props;
@@ -85,7 +87,7 @@ export default function Layer({layer, object, children}: LayerProps){
 
                 <div ref={mainRef as MutableRefObject<HTMLDivElement>} className="absolute z-20">
 
-                    <canvas ref={canvRef as MutableRefObject<HTMLCanvasElement>} onClick={()=> setSelected(true)} className="absolute z-20 bg-orange-400"></canvas>
+                    <canvas ref={canvRef as MutableRefObject<HTMLCanvasElement>} onClick={()=> setSelected(true)} className="absolute z-20"></canvas>
 
                     {
                         selected &&

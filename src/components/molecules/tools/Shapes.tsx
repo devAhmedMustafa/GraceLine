@@ -1,10 +1,10 @@
 import { useRef, useState, useEffect, createElement, useContext, MutableRefObject } from "react";
-import LayersContext from "../../contexts/LayersContext";
-import RectData from "../../utils/DrawData/RectData";
-import useAddLayer from "../../hooks/useAddLayer";
-import IRectLayer from "../../interfaces/Layers/IRectLayer";
-import vector2 from "../../utils/Math/vector2";
-import Color from "../../utils/Types/Color";
+import LayersContext from "../../../contexts/LayersContext";
+import RectData from "../../../utils/DrawData/RectData";
+import useAddLayer from "../../../hooks/useAddLayer";
+import IRectLayer from "../../../interfaces/Layers/IRectLayer";
+import vector2 from "../../../utils/Math/vector2";
+import Color from "../../../utils/Types/Color";
 
 export default function Shapes(){
 
@@ -147,7 +147,7 @@ export default function Shapes(){
                 props: newRect,
             }
 
-            setLayers([...layers, layer])
+            addLayer(layer)
 
             currentOutline?.remove();
             currentOutline = null;

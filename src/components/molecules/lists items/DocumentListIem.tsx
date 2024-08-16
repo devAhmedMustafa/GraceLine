@@ -18,21 +18,21 @@ const DocumentListItem : React.FC<{document: IDocument}> = ({document})=>{
     ]
 
     return (
-        <li className="border-2 px-6 py-4 min-w-64 rounded-lg flex flex-col justify-between gap-8">
+        <li className=" bg-white px-6 py-4 min-w-64 rounded-2xl flex flex-col justify-between gap-8">
             <div className="flex items-center gap-2">
                 <i className='bx bx-chalkboard text-3xl'></i>
                 <h2 className="text-lg">{document.name}</h2>
             </div>
 
             <div className="text-gray-500">
-                <p>Layers: {document.layers.length}</p>
-                <p>Created at: {document.createdAt!?.toLocaleString()}</p>
-                <p>Opened at: {document.openedAt!?.toLocaleString()}</p>
+                <p>Layers: {document.layers?.length}</p>
+                <p>Created at: {document.created_at!?.toLocaleString()}</p>
+                <p>Opened at: {document.opened_at!?.toLocaleString()}</p>
             </div>
 
             <div className="flex justify-between">
 
-                <button className="bg-minor px-5 py-2 rounded-md text-white font-semibold">Open</button>
+                <Link target="_blank" to={`/graceline/${document._id}`} className="bg-primary px-5 py-2 rounded-md text-white font-semibold">Open</Link>
 
                 <div className="flex gap-2 items-center">
                     <button>

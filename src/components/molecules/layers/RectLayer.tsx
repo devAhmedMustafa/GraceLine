@@ -13,7 +13,7 @@ const RectLayer : React.FC<IRect> = ({layer}) => {
 
     const rect = new Rectangular(
         new vector2(0, 0),
-        new vector2(layer.size.x, layer.size.y), 
+        layer.size, 
         layer.props.color,
         layer.props.strokeColor,
         layer.props.strokeThickness,

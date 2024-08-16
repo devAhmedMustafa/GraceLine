@@ -40,7 +40,7 @@ const ToolBar : React.FC = ()=>{
 
     return (
         <div className="flex gap-1 justify-center items-center fixed cursor-default z-[100] top-2 right-2">
-            <ul ref={listRef as MutableRefObject<HTMLUListElement>} className={"flex flex-col text-xl bg-white rounded-full w-fit border-2 px-2 py-1 text-gray-800 gap-4 " + styles.toolslist}>
+            <ul ref={listRef as MutableRefObject<HTMLUListElement>} className={"flex flex-col text-xl bg-white rounded-full w-fit border-2 px-2 py-3 text-gray-800 gap-4 " + styles.toolslist}>
                 <li><i className="fa-solid fa-arrow-pointer"></i></li>
                 <li><i className="fa-solid fa-pen"></i></li>
                 <li><i className="fa-solid fa-shapes"></i></li>

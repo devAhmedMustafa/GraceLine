@@ -28,7 +28,7 @@ const InfOnHover : React.FC<{text: string}> = ({text})=>{
     }, [])
 
     return (
-        <div ref={ref as MutableRefObject<HTMLDivElement>} className="absolute transition-opacity opacity-0 bg-neutral-950 text-white px-2 py-1 duration-700 invisible -left-1/2 max-w-96 whitespace-nowrap">
+        <div ref={ref as MutableRefObject<HTMLDivElement>} className="absolute transition-opacity opacity-0 bg-neutral-950 z-20 text-white px-2 py-1 duration-700 invisible -left-1/2 max-w-96 whitespace-nowrap">
             {text}
         </div>
     )

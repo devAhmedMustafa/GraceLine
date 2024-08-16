@@ -31,7 +31,7 @@ const FoldOptions : React.FC<{options?: Option[]}> = ({options})=>{
 
 
     return (
-        <section ref={menuRef as any} className="relative">
+        <section ref={menuRef as any} className="relative z-50">
             <button onClick={toggleMenu}>
                 <i className='bx bx-dots-vertical-rounded text-3xl' ></i>
                 <InfOnHover text="More options"/>

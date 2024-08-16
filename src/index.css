@@ -9,6 +9,10 @@
     --accent-color: "#2E82FF";
 }
 
+#root{
+    height: 100%;
+}
+
 @layer utilities{
     .font-hand{
         font-family: "Outfit", sans-serif;

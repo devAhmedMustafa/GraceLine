@@ -1,11 +1,7 @@
 .shape-shift{
-    background-color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
+    background-color: rgb(255, 84, 16);
     z-index: 100;
-    margin: 40px;
-    animation: border-shift 4s ease-in-out infinite alternate;
+    animation: border-shift 2s ease-in-out infinite alternate;
 }
 
 @keyframes border-shift {
