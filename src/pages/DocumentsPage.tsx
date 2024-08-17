@@ -14,7 +14,7 @@ const DocumentsPage : React.FC = ()=>{
                 <DocuementsSideBar/>
             </div>
 
-            <div className="bg-background w-full -z-10">
+            <div className="bg-background min-w-full overflow-auto -z-10">
                 <DocumentsBody/>
             </div>
 

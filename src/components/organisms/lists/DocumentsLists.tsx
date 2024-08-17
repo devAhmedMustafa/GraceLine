@@ -7,7 +7,7 @@ const DocumentsList : React.FC = ()=>{
     const {documents} = useContext(DocumentsContext);
 
     return (
-        <ul className="flex gap-8 flex-wrap">
+        <ul className="flex gap-4 flex-wrap">
             {Object.values(documents).map((doc, id)=> <DocumentListItem key={id} document={doc}/>)}
         </ul>
     )

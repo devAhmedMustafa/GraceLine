@@ -4,10 +4,10 @@ import AddDocumentButton from "../../atoms/buttons/AddDocumentButton";
 
 const DocuementsSideBar : React.FC = ()=>{
     return (
-        <div className="bg-[#ececec3a] w-fit h-full container-padding flex flex-col gap-12 shadow-2xl justify-between">
+        <div className="bg-[#ececec3a] w-fit h-full container-padding flex flex-col shadow-2xl justify-between">
             
 
-            <div className="flex flex-col gap-5 items-start">
+            <div className="flex flex-col gap-4 items-start">
 
                 <button className={styles.secBtn}>
                     <i className='bx bx-time-five' ></i>

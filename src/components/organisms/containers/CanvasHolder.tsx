@@ -12,7 +12,6 @@ const CanvasHolder : React.FC<{children: ReactNode}> = ({children})=>{
 
     const cellSize = 80;
     const canvasRef = useRef<HTMLCanvasElement>();
-    const {scale, translate} = useSmoothZoom(canvasRef as any)
 
     const initialization = ()=>{
 
@@ -26,11 +25,6 @@ const CanvasHolder : React.FC<{children: ReactNode}> = ({children})=>{
     const drawBackground = ()=>{
         if (!canvasRef.current) return;
         const ctx : CanvasRenderingContext2D = canvasRef.current!.getContext('2d')!;
-        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height)
-
-        ctx.save()
-        ctx.scale(scale, scale);
-        ctx.translate(translate.x, translate.y);
 
         const particleRadius = 1;
         const cellsCount = Math.round(canvasRef.current!.width * canvasRef.current!.height / 20);
@@ -52,13 +46,8 @@ const CanvasHolder : React.FC<{children: ReactNode}> = ({children})=>{
             }
         }
 
-        ctx.restore()
 
     }
-
-    useEffect(()=>{
-        drawBackground();
-    }, [scale, translate])
 
     useEffect(()=>{
 

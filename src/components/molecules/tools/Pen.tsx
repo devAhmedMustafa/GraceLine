@@ -7,6 +7,7 @@ import vector2 from "../../../utils/Math/vector2";
 import Color from "../../../utils/Types/Color";
 import IFreehandLayer from "../../../interfaces/Layers/IFreehandLayer";
 import useAddLayer from "../../../hooks/useAddLayer";
+import { Icon } from "@iconify-icon/react/dist/iconify.mjs";
 
 export default function Pen(){
 
@@ -117,7 +118,7 @@ export default function Pen(){
     return(
         <div>
             <div ref={toolRef as MutableRefObject<HTMLDivElement>} className="absolute z-20">
-                <i className="fa-solid fa-pen text-xl"></i>
+                <Icon icon="akar-icons:pencil" className="text-xl"/>
             </div>
 
             <canvas className="absolute top-0 left-0 z-20" ref={canvaRef as MutableRefObject<HTMLCanvasElement>}></canvas>

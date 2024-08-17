@@ -11,6 +11,7 @@ import useTitle from "../hooks/useTitle";
 import SingleDocumentContext from "../contexts/SingleDocumentContext";
 import useFetch from "../hooks/useFetch";
 import usePut from "../hooks/usePut";
+import DocumentHeadline from "../components/organisms/containers/DocumentHeadline";
 
 const SingleDocumentPage : React.FC = ()=>{
 
@@ -33,7 +34,6 @@ const SingleDocumentPage : React.FC = ()=>{
     useEffect(()=>{
         if (document){
             const {_id, user, created_at, ..._doc} = {...document}
-            _doc.name = "uni"
             _doc.updated_at = new Date(Date.now())
             put(_doc)
         }
@@ -43,25 +43,25 @@ const SingleDocumentPage : React.FC = ()=>{
         <div>
             <DrawStateContext.Provider value={{drawState, setDrawState}}>
 
-                <ToolBar/>
+                {document&& 
+                <SingleDocumentContext.Provider value={{document: document as IDocument, setDocument}}>
 
-                <CanvasHolder>
+                    <DocumentHeadline/>
+                    <ToolBar/>
 
-                    <SingleDocumentContext.Provider value={{document: document as IDocument, setDocument}}>
+                    <CanvasHolder>
 
-                        {document&& 
-                            <Board>
+                                <Board>
 
-                            {drawState === DrawTools.pen && <Pen/>}
-                            {drawState === DrawTools.shapes && <Shapes/>}
-                            
-                            </Board>
-                        }
+                                {drawState === DrawTools.pen && <Pen/>}
+                                {drawState === DrawTools.shapes && <Shapes/>}
+                                
+                                </Board>
 
-                    </SingleDocumentContext.Provider>
+                    </CanvasHolder>
 
-
-                </CanvasHolder>
+                </SingleDocumentContext.Provider>
+                }
 
             </DrawStateContext.Provider>
         </div>

@@ -1,12 +1,12 @@
 .toolslist li{
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.2s;
     cursor: pointer;
-    border-radius: 100%;
+    border-radius: 10%;
 }
 
 .activated-tool{

@@ -31,6 +31,6 @@ export default function AddDocumentButton(){
     }, [data])
 
     return (
-        <button onClick={addDocuemnt} className="bg-minor rounded-lg text-white font-bold px-12 py-3 shadow-2xl text-xl flex items-center gap-2"><i className='bx bx-plus font-extrabold'></i>New</button>
+        <button onClick={addDocuemnt} className="bg-minor rounded-lg text-white font-bold px-12 py-3 shadow-2xl text-md flex items-center gap-2"><i className='bx bx-plus font-extrabold'></i>New</button>
     )
 }
